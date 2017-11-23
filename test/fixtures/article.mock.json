@@ -1,7 +1,24 @@
 {
-  "list": [
+  "lundi": [
+    {"name": "Tomates", "quantity": 3, "status":"nok"},
+    {"name": "Mozarella", "quantity": 3, "status":"nok"}
+  ],
+  "mardi": [
+    {"name": "Pizza", "quantity": 3, "status":"nok"},
+    {"name": "Mozarella", "quantity": 3, "status":"nok"}
+  ],
+  "mercredi": [
+    {"name": "Tomates", "quantity": 3, "status":"nok"},
+    {"name": "Mozarella", "quantity": 3, "status":"nok"}
+  ],
+  "jeudi": [
+    {"name": "Tomates", "quantity": 3, "status":"nok"},
+    {"name": "Mozarella", "quantity": 3, "status":"nok"}
+  ],
+  "vendredi": [
     {"name": "Tomates", "quantity": 3, "status":"nok"},
     {"name": "Mozarella", "quantity": 3, "status":"nok"}
   ]
+
 }
 

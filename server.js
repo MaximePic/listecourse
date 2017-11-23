@@ -3,7 +3,7 @@
  */
 const express = require('express')
 const app = express()
-const articleMock = require('./test/fixtures/article.mock')
+const articlelist = require('./test/fixtures/article.mock')
 
 app.get('/', function (req, res) {
     res.json({
@@ -17,10 +17,19 @@ app.get('/', function (req, res) {
 app.get('/getList', function (req, res) {
     res.json({
         status: 'success',
-        data: {articleMock}
+        data: articlelist
     })
 })
 
+app.get('/getList/:name', function (req, res) {
+    res.json({
+        status: 'success',
+        data: articlelist
+    })
+})
+
+
+//Configuration du serveur
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!')
 })
