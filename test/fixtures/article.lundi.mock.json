@@ -1,0 +1,10 @@
+[
+  {
+    "day": "lundi",
+    "articles": [
+      {"name": "Tomates", "quantity": 3, "status":"nok"},
+      {"name": "Mozarella", "quantity": 3, "status":"nok"}
+    ]
+  }
+]
+

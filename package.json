@@ -21,6 +21,8 @@
   "dependencies": {
     "chai": "^4.1.2",
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "lodash.where": "^3.1.0",
     "mocha": "^4.0.1",
     "sinon": "^4.1.2",
     "supertest": "^3.0.0"

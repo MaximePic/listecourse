@@ -3,11 +3,14 @@ require('chai').should()
 
 const app = require('../server')
 const articleList = require('../test/fixtures/article.mock')
+const mondayArticleList = require('../test/fixtures/article.lundi.mock')
 
 let course = null;
+let courseLundi = null;
 
 beforeEach(() =>
-    course = articleList
+    course = articleList,
+    courseLundi = mondayArticleList
 );
 
 //Tests sur l'api /getList
@@ -28,6 +31,15 @@ describe('GetList', () => {
     it('should get course list', () => {
         return request(app).get('/getList').then((res) => {
             res.body.data.should.eql(course)
+        })
+    })
+})
+
+//Tests sur l'api /getList/:param
+describe('GetListWithParams', () => {
+    it('should get monday article list', () => {
+        return request(app).get('/getList/lundi').then((res) => {
+            res.body.data.should.eql(courseLundi)
         })
     })
 })
