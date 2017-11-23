@@ -3,6 +3,7 @@
  */
 const express = require('express')
 const app = express()
+const articleMock = require('./test/fixtures/article.mock')
 
 app.get('/', function (req, res) {
     res.json({
@@ -10,6 +11,13 @@ app.get('/', function (req, res) {
         data: {
             user: { name: 'Jean', age: 45 }
         }
+    })
+})
+
+app.get('/getList', function (req, res) {
+    res.json({
+        status: 'success',
+        data: {articleMock}
     })
 })
 
