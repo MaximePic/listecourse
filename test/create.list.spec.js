@@ -1,18 +1,15 @@
-const request = require('supertest')
-require('chai').should()
+// const request = require('supertest')
+// require('chai').should()
 
-const app = require('../server')
+// const app = require('../server')
+// const articleList = require('../test/fixtures/article.mock')
 
-describe('CreateList', () => {
-    it('should pass', () => {
-    return request(app).get('/').then((res) => {
-        res.status.should.equal(200)
-    res.body.status.should.equal('success')
-    res.body.data.should.be.an('object')
-    res.body.data.user.should.eql({
-        name: 'Jean',
-        age: 45,
-    })
-})
-})
-})
+// /**GL1  En tant que client API
+// Je veux créer une liste de course
+// Afin de me rappeler de ce que je
+// dois acheter**/
+// describe('CreateList', () => {
+//     it('should create a list', () => {
+//         return request(app).post('/createList')
+//     })
+// })

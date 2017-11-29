@@ -3,8 +3,13 @@
  */
 const express = require('express')
 const app = express()
-const articlelist = require('./test/fixtures/article.mock')
 const where = require("lodash.where")
+const bodyParser = require('body-parser')
+const mockFile = require('./test/fixtures/mock')
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 
 app.get('/', function (req, res) {
     res.json({
@@ -15,25 +20,35 @@ app.get('/', function (req, res) {
     })
 })
 
+//***************************************//
+//***************** GL3 *****************//
+//***********get.list.spec.js***********//
+//***************************************//
 app.get('/getList', function (req, res) {
     res.json({
         status: 'success',
-        data: articlelist
+        data: mockFile.dataArticle
     })
 })
 
+
+//***************************************//
+//***************** GL5 *****************//
+//**********get.article.spec.js**********//
+//***************************************//
 app.get('/getList/:day', function (req, res) {
     let day = req.params.day;
-    let filtered = where(articlelist,{day: day});
-    console.log(filtered)
+    let filtered = where(mockFile.dataArticle,{day: day});
     res.json({
         status: 'success',
         data: filtered
     })
 })
 
+app.post('/createList', function (req, res) {
+    
+})
 
-//Configuration du serveur
 app.listen(1997, function () {
     console.log('Example app listening on port 1997!')
 })

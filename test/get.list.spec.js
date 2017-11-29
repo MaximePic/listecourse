@@ -1,16 +1,20 @@
+/* GL-3
+En tant que client API
+Je veux pouvoir afficher les listes
+de course
+Afin de parcourir les listes que j'ai
+créées  */
+
 const request = require('supertest')
 require('chai').should()
 
 const app = require('../server')
-const articleList = require('../test/fixtures/article.mock')
-const mondayArticleList = require('../test/fixtures/article.lundi.mock')
+const mock = require('./fixtures/mock')
 
-let course = null;
-let courseLundi = null;
+let dataArticle = null;
 
 beforeEach(() =>
-    course = articleList,
-    courseLundi = mondayArticleList
+    dataArticle = mock.dataArticle,
 );
 
 //Tests sur l'api /getList
@@ -30,16 +34,7 @@ describe('GetList', () => {
 
     it('should get course list', () => {
         return request(app).get('/getList').then((res) => {
-            res.body.data.should.eql(course)
-        })
-    })
-})
-
-//Tests sur l'api /getList/:param
-describe('GetListWithParams', () => {
-    it('should get monday article list', () => {
-        return request(app).get('/getList/lundi').then((res) => {
-            res.body.data.should.eql(courseLundi)
+            res.body.data.should.eql(dataArticle)
         })
     })
 })
