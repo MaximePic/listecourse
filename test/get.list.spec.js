@@ -11,10 +11,10 @@ require('chai').should()
 const app = require('../server')
 const mock = require('./fixtures/mock')
 
-let dataArticle = null;
+let standardArticleList = null;
 
 beforeEach(() =>
-    dataArticle = mock.dataArticle,
+    standardArticleList = mock.standardArticleList,
 );
 
 //Tests sur l'api /getList
@@ -34,7 +34,7 @@ describe('GetList', () => {
 
     it('should get course list', () => {
         return request(app).get('/getList').then((res) => {
-            res.body.data.should.eql(dataArticle)
+            res.body.data.should.eql(standardArticleList)
         })
     })
 })

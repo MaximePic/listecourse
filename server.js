@@ -1,11 +1,13 @@
-/**
- * Created by maxim on 23/11/2017.
- */
 const express = require('express')
 const app = express()
 const where = require("lodash.where")
 const bodyParser = require('body-parser')
-const mockFile = require('./test/fixtures/mock')
+const mock = require('./test/fixtures/mock')
+const Components = require('./app/components/Components')
+
+const List = Components.List;
+const port = 1997;
+
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -21,16 +23,39 @@ app.get('/', function (req, res) {
 })
 
 //***************************************//
+//***************** GL1 *****************//
+//**********create.list.spec.js**********//
+//***************************************//
+//TODO
+
+//***************************************//
+//***************** GL2 *****************//
+//**********delete.list.spec.js**********//
+//***************************************//
+//TODO
+
+//***************************************//
 //***************** GL3 *****************//
 //***********get.list.spec.js***********//
 //***************************************//
 app.get('/getList', function (req, res) {
     res.json({
         status: 'success',
-        data: mockFile.dataArticle
+        data: mock.standardArticleList
     })
 })
 
+//****************************************//
+//****************** GL4 *****************//
+//************add.list.spec.js************//
+//****************************************//
+app.post('/list', function (req, res) {
+    let newArticle = req.body;
+    let key = newArticle.day;
+    mock.standardArticleList[key] = newArticle;
+    
+    res.status(200).send(mock.standardArticleList);
+})
 
 //***************************************//
 //***************** GL5 *****************//
@@ -38,19 +63,24 @@ app.get('/getList', function (req, res) {
 //***************************************//
 app.get('/getList/:day', function (req, res) {
     let day = req.params.day;
-    let filtered = where(mockFile.dataArticle,{day: day});
+    let filtered = where(mock.standardArticleList,{day: day});
     res.json({
         status: 'success',
         data: filtered
     })
 })
 
-app.post('/createList', function (req, res) {
-    
-})
+//*******************************************//
+//******************* GL6 *******************//
+//**********update.article.spec.js***********//
+//*******************************************//
+//TODO
 
-app.listen(1997, function () {
-    console.log('Example app listening on port 1997!')
+
+
+//Listen port
+app.listen(port, function () {
+    console.log('Testing app listening on port ' + port)
 })
 
 module.exports = app
