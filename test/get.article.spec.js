@@ -11,36 +11,32 @@ require('chai').should()
 const app = require('../server')
 const mock = require('./fixtures/mock')
 
-// let dataLundi = {};
-// let dataMardi = {};
-// let standardArticleList = {};
+var dataMercredi = [];
+var dataMardi = [];
 
 beforeEach(() =>
-    dataLundi.push(mock.dataLundi),
-    dataMardi.push(mock.dataMardi),
-    standardArticleList.push(mock.standardArticleList)
+    dataMercredi.push(mock.dataMercredi)
 );
 
 afterEach(() => 
-     dataLundi.splice(0),
-    dataMardi.splice(0),
-    standardArticleList.splice(0)
+    dataMercredi.splice(0),
+    dataMardi.splice(0)
 );
 
 //Tests sur l'api /getList/:param
 describe('GetListWithParams', () => {
-    let monday = "lundi";
+    let wednesday = "mercredi";
     let tuesday = "mardi";
 
-    it('should get monday article list', () => {
-        return request(app).get('/getList/' + monday).then((res) => {
-            res.body.data.should.eql(dataLundi)
+    it('should get wednesday article list', () => {
+        return request(app).get('/getList/' + wednesday).then((res) => {
+            res.body.data.should.eql(mock.dataMercredi)
         })
     })
 
     it('should get tuesday article list', () => {
         return request(app).get('/getList/' + tuesday).then((res) => {
-            res.body.data.should.eql(dataMardi)
+            res.body.data.should.eql(mock.dataMardi)
         })
     })
 });

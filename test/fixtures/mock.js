@@ -97,12 +97,12 @@ const articles = {
     }
   }
 
-const dataLundi = [{
-      day: "lundi",
-      articles: {
-        list: [
-        {"name": "Tomates", "quantity": 3, "status":"nok"},
-        {"name": "Mozarella", "quantity": 3, "status":"nok"}
+const dataMercredi = [{
+    day: "mercredi",
+    articles:{
+      list:[
+      {"name": "Pizza", "quantity": 1, "status":"nok"},
+      {"name": "Bieres", "quantity": 8, "status":"nok"}
     ]}
   }]
 
@@ -173,7 +173,7 @@ const article = {name: "Iphone", quantity: 1, status: "nok"}
 
 module.exports = {
   standardArticleList,
-  dataLundi,
+  dataMercredi,
   dataMardi,
   articles,
   listAfterArticleAdded
