@@ -2,8 +2,10 @@ const express = require('express')
 const app = express()
 const where = require("lodash.where")
 const bodyParser = require('body-parser')
-const mock = require('./test/fixtures/mock')
+//const mock = require('./test/fixtures/mock') // a virer
 const Components = require('./app/components/Components')
+const db = require('./test/data/db')
+
 
 const Article = Components.Article;
 const port = 1997;
@@ -46,7 +48,7 @@ app.post('/list', function (req, res) {
 app.get('/list', function (req, res) {
     res.json({
         status: 'success',
-        data: mock.standardArticleList
+        data: db.courseList
     })
 })
 

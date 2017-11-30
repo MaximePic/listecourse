@@ -26,17 +26,20 @@ beforeEach(() =>
 
 
 describe('AddArticles', () => {
-    // it('should get status 200 (success)', (done) => {
+    xit('should get status 200 (success)', (done) => {
         
-    //     let article =  new Article("Iphone", 1, "nok");
+        let article =  new Article("Iphone", 1, "nok");
+        let day = "lundi";
 
-    //     request(app)
-    //         .post('/article')
-    //         .send(article)
-    //         .expect(200, done)
-    // })
+        request(app)
+            .post('/article')
+            .send({
+                article,
+                 day})
+            .expect(200, done)
+    })
 
-    it('should update list with new article', (done) => {
+    xit('should update list with new article', (done) => {
         let article =  new Article("Iphone", 1, "nok");
         let day = "lundi";
 

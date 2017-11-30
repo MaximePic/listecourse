@@ -4,6 +4,12 @@ function Article(name, quantity, status){
     this.status = status;
 }
 
+function List(day, articles){
+    this.day = day,
+    this.articles = articles
+}
+
 module.exports = {
-    Article
+    Article,
+    List
 }
