@@ -78,6 +78,28 @@ app.get('/list/:day', function (req, res) {
 
 //*******************************************//
 //******************* GL6 *******************//
+//**********delete.list.spec.js***********//
+//*******************************************//
+app.post('/delete', function (req, res) {
+    let day = req.body.day;
+    delete mock.standardArticleList[day];
+
+    res.status(200).send(mock.standardArticleList);
+
+
+
+
+
+
+
+
+
+
+})
+
+
+//*******************************************//
+//******************* GL6 *******************//
 //**********update.article.spec.js***********//
 //*******************************************//
 //TODO

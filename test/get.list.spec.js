@@ -14,7 +14,7 @@ const mock = require('./fixtures/mock')
 let standardArticleList = null;
 
 beforeEach(() =>
-    standardArticleList = mock.standardArticleList,
+    standardArticleList = mock.standardArticleList
 );
 
 //Tests sur l'api /getList

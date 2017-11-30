@@ -171,12 +171,49 @@ const article = {name: "Iphone", quantity: 1, status: "nok"}
 //   }
 // }
 
+const deleteMercrediArticleList = {
+    lundi:{
+        day: "lundi",
+        articles: {
+            list: [
+                {"name": "Tomates", "quantity": 3, "status":"nok"},
+                {"name": "Mozarella", "quantity": 3, "status":"nok"}
+            ]}
+    },
+    mardi:{
+        day: "mardi",
+        articles: {
+            list: [
+                {"name": "Lait", "quantity": 6, "status":"nok"},
+                {"name": "oeufs", "quantity": 12, "status":"nok"}
+            ]}
+    },
+    jeudi:{
+        day: "jeudi",
+        articles: {
+            list: [
+                {"name": "Pâtes", "quantity": 1, "status":"nok"},
+                {"name": "Poulet", "quantity": 1, "status":"nok"}
+            ]}
+    },
+    vendredi:{
+        day: "vendredi",
+        articles: {
+            list: [
+                {"name": "Poisson", "quantity": 1, "status":"nok"},
+                {"name": "riz", "quantity": 1, "status":"nok"}
+            ]}
+    }
+};
+
+
 module.exports = {
   standardArticleList,
   dataMercredi,
   dataMardi,
   articles,
-  listAfterArticleAdded
+  listAfterArticleAdded,
+  deleteMercrediArticleList
 };
   
   
