@@ -11,14 +11,20 @@ require('chai').should()
 const app = require('../server')
 const mock = require('./fixtures/mock')
 
-let dataLundi = null;
-let dataMardi = null;
-let standardArticleList = null;
+// let dataLundi = {};
+// let dataMardi = {};
+// let standardArticleList = {};
 
 beforeEach(() =>
-    dataLundi = mock.dataLundi,
-    dataMardi = mock.dataMardi,
-    standardArticleList = mock.standardArticleList,
+    dataLundi.push(mock.dataLundi),
+    dataMardi.push(mock.dataMardi),
+    standardArticleList.push(mock.standardArticleList)
+);
+
+afterEach(() => 
+     dataLundi.splice(0),
+    dataMardi.splice(0),
+    standardArticleList.splice(0)
 );
 
 //Tests sur l'api /getList/:param

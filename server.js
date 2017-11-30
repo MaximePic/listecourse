@@ -59,7 +59,7 @@ app.post('/article', function (req, res) {
     let article = req.body.article;
     let currentList = mock.standardArticleList;
 
-    currentList[day]['articles']['list'].push({article});
+    currentList[day]['articles']['list'].push(article);
     res.status(200).send(currentList);
 })
 
