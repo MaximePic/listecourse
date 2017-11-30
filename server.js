@@ -5,13 +5,12 @@ const bodyParser = require('body-parser')
 const mock = require('./test/fixtures/mock')
 const Components = require('./app/components/Components')
 
-const List = Components.List;
+const Article = Components.Article;
 const port = 1997;
 
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
 
 app.get('/', function (req, res) {
     res.json({
@@ -26,7 +25,13 @@ app.get('/', function (req, res) {
 //***************** GL1 *****************//
 //**********create.list.spec.js**********//
 //***************************************//
-//TODO
+app.post('/list', function (req, res) {
+    let newArticle = req.body;
+    let key = newArticle.day;
+    mock.standardArticleList[key] = newArticle;
+    
+    res.status(200).send(mock.standardArticleList);
+})
 
 //***************************************//
 //***************** GL2 *****************//
@@ -47,14 +52,15 @@ app.get('/getList', function (req, res) {
 
 //****************************************//
 //****************** GL4 *****************//
-//************add.list.spec.js************//
+//************add.article.spec.js************//
 //****************************************//
-app.post('/list', function (req, res) {
-    let newArticle = req.body;
-    let key = newArticle.day;
-    mock.standardArticleList[key] = newArticle;
-    
-    res.status(200).send(mock.standardArticleList);
+app.post('/article', function (req, res) {
+    let day = req.body.day;
+    let article = req.body.article;
+    let currentList = mock.standardArticleList;
+
+    currentList[day]['articles']['list'].push({article});
+    res.status(200).send(currentList);
 })
 
 //***************************************//

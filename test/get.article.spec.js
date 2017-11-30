@@ -13,10 +13,12 @@ const mock = require('./fixtures/mock')
 
 let dataLundi = null;
 let dataMardi = null;
+let standardArticleList = null;
 
 beforeEach(() =>
     dataLundi = mock.dataLundi,
-    dataMardi = mock.dataMardi
+    dataMardi = mock.dataMardi,
+    standardArticleList = mock.standardArticleList,
 );
 
 //Tests sur l'api /getList/:param
