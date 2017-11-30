@@ -22,19 +22,19 @@ afterEach(() =>
 );
 
 //Tests sur l'api /getList/:param
-describe('GetListWithParams', () => {
-    let wednesday = "mercredi";
+describe('GetArticleFromList', () => {
+    let monday = "lundi";
     let tuesday = "mardi";
 
-    xit('should get wednesday article list', () => {
-        return request(app).get('/list/' + wednesday).then((res) => {
-            res.body.data.should.eql(mock.dataMercredi)
+    it('should get monday article list', () => {
+        return request(app).get('/list/' + monday).then((res) => {
+            res.body.data.should.eql(mock.mondayList)
         })
     })
 
-    xit('should get tuesday article list', () => {
-        return request(app).get('/list/' + tuesday).then((res) => {
-            res.body.data.should.eql(mock.dataMardi)
-        })
-    })
+    // it('should get tuesday article list', () => {
+    //     return request(app).get('/list/' + tuesday).then((res) => {
+    //         res.body.data.should.eql(mock.mondayList)
+    //     })
+    // })
 });

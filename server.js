@@ -59,7 +59,7 @@ app.get('/list', function (req, res) {
 app.post('/article', function (req, res) {
     let day = req.body.day;
     let article = req.body.article;
-    let currentList = mock.standardArticleList;
+    let currentList = db.courseList
 
     currentList[day]['articles']['list'].push(article);
     res.status(200).send(currentList);
@@ -71,10 +71,11 @@ app.post('/article', function (req, res) {
 //***************************************//
 app.get('/list/:day', function (req, res) {
     let day = req.params.day;
-    let filtered = where(mock.standardArticleList,{day: day});
+    let result = where(db.courseList, {day:day})
+    console.log(result)
     res.json({
         status: 'success',
-        data: filtered
+        data: [result[0]]
     })
 })
 
@@ -83,8 +84,6 @@ app.get('/list/:day', function (req, res) {
 //**********update.article.spec.js***********//
 //*******************************************//
 //TODO
-
-
 
 //Listen port
 app.listen(port, function () {

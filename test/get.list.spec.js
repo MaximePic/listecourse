@@ -38,7 +38,6 @@ describe('GetList', () => {
     })
 
     it('should get course list', () => {
-        console.log("courselist = " + db.courseList)
         return request(app).get('/list').then((res) => {
             res.body.data.should.eql(mock.standardArticleList)
         })
