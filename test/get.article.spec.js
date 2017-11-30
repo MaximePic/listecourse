@@ -29,13 +29,13 @@ describe('GetListWithParams', () => {
     let tuesday = "mardi";
 
     it('should get wednesday article list', () => {
-        return request(app).get('/getList/' + wednesday).then((res) => {
+        return request(app).get('/list/' + wednesday).then((res) => {
             res.body.data.should.eql(mock.dataMercredi)
         })
     })
 
     it('should get tuesday article list', () => {
-        return request(app).get('/getList/' + tuesday).then((res) => {
+        return request(app).get('/list/' + tuesday).then((res) => {
             res.body.data.should.eql(mock.dataMardi)
         })
     })

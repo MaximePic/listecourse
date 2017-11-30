@@ -43,7 +43,7 @@ app.post('/list', function (req, res) {
 //***************** GL3 *****************//
 //***********get.list.spec.js***********//
 //***************************************//
-app.get('/getList', function (req, res) {
+app.get('/list', function (req, res) {
     res.json({
         status: 'success',
         data: mock.standardArticleList
@@ -67,7 +67,7 @@ app.post('/article', function (req, res) {
 //***************** GL5 *****************//
 //**********get.article.spec.js**********//
 //***************************************//
-app.get('/getList/:day', function (req, res) {
+app.get('/list/:day', function (req, res) {
     let day = req.params.day;
     let filtered = where(mock.standardArticleList,{day: day});
     res.json({
