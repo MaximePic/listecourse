@@ -1,4 +1,8 @@
 language: node_js
 node_js:
 - "stable"
-install: travis_wait npm install
+before-script: 
+  npm install
+
+script:
+  npm test
