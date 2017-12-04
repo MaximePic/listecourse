@@ -11,18 +11,10 @@ const app = require('../server')
 const mock = require('./fixtures/mock')
 const Components = require('../app/components/Components')
 
-
-beforeEach(() =>
-    List = Components.List,
-    articles = mock.articles,
-    newArticleList = mock.newArticleList,
-    standardArticleList = mock.standardArticleList
-);
-
-// afterEach(()=>
-
-// );
 describe('AddList', () => {
+    
+    beforeEach(() => {courseListFixture.up()});
+    afterEach(() => {courseListFixture.down()});
 
     xit('should update list with new article', (done) => {
         let list =  new List("samedi", articles);

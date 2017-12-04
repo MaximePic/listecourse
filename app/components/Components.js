@@ -1,15 +1,21 @@
-function Article(name, quantity, status){
-    this.name = name;
-    this.quantity = quantity;
-    this.status = status;
+class Article {
+    constructor(id, name, quantity, status){
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.status = status;
+    }
+
 }
 
-function List(day, articles){
-    this.day = day,
-    this.articles = articles
+class List {
+    constructor(day, articles){
+        this.day = day;
+        this.articles = articles;
+    }
 }
 
 module.exports = {
-    Article,
-    List
-}
+    List,
+    Article
+};

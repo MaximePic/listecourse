@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const where = require("lodash.where")
 const bodyParser = require('body-parser')
-//const mock = require('./test/fixtures/mock') // a virer
 const Components = require('./app/components/Components')
 const db = require('./test/data/db')
 
@@ -27,13 +26,13 @@ app.get('/', function (req, res) {
 //***************** GL1 *****************//
 //**********create.list.spec.js**********//
 //***************************************//
-app.post('/list', function (req, res) {
+/*app.post('/list', function (req, res) {
     let newArticle = req.body;
     let key = newArticle.day;
     mock.standardArticleList[key] = newArticle;
     
     res.status(200).send(mock.standardArticleList);
-})
+})*/
 
 //***************************************//
 //***************** GL2 *****************//
@@ -50,7 +49,7 @@ app.get('/list', function (req, res) {
         status: 'success',
         data: db.courseList
     })
-})
+});
 
 //****************************************//
 //****************** GL4 *****************//
@@ -59,11 +58,11 @@ app.get('/list', function (req, res) {
 app.post('/article', function (req, res) {
     let day = req.body.day;
     let article = req.body.article;
-    let currentList = db.courseList
 
-    currentList[day]['articles']['list'].push(article);
-    res.status(200).send(currentList);
-})
+    db.courseList[0][day].push(article);
+    console.log("currentList after" + JSON.stringify(db.courseList));
+    res.status(200).send(db.courseList);
+});
 
 //***************************************//
 //***************** GL5 *****************//
@@ -71,11 +70,10 @@ app.post('/article', function (req, res) {
 //***************************************//
 app.get('/list/:day', function (req, res) {
     let day = req.params.day;
-    let result = where(db.courseList, {day:day})
-    console.log(result)
+    let result = db.courseList[0][day];
     res.json({
         status: 'success',
-        data: [result[0]]
+        data: result
     })
 })
 

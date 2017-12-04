@@ -6,29 +6,23 @@ course donnée
 Afin de pouvoir retenir facilement
 l'article à acheter */
 
-const request = require('supertest')
-require('chai').should()
-
-const app = require('../server')
-const mock = require('./fixtures/mock')
-const Components = require('../app/components/Components')
-
-
-let articles = null;
-let Article = null;
-
-beforeEach(() =>
-    Article = Components.Article,
-    articles = mock.articles,
-    standardArticleList = mock.standardArticleList,
-    listAfterArticleAdded = mock.listAfterArticleAdded
-);
-
+const request = require('supertest');
+require('chai').should();
+const app = require('../server');
+const mock = require('./fixtures/mock');
+const Components = require('../app/components/Components');
+const Article = Components.Article;
+const db = require ('./data/db');
+const courseListFixture = require('./fixtures/courseList');
 
 describe('AddArticles', () => {
+    beforeEach(() => {courseListFixture.up()});
+
+    afterEach(() => {courseListFixture.down()});
+    
     xit('should get status 200 (success)', (done) => {
         
-        let article =  new Article("Iphone", 1, "nok");
+        let article = new Article(3, "Iphone", 1, "nok");
         let day = "lundi";
 
         request(app)
@@ -37,10 +31,10 @@ describe('AddArticles', () => {
                 article,
                  day})
             .expect(200, done)
-    })
+    });
 
-    xit('should update list with new article', (done) => {
-        let article =  new Article("Iphone", 1, "nok");
+    it('should update list with new article', (done) => {
+        let article =  new Article(3, "Iphone", 1, "nok");
         let day = "lundi";
 
         request(app)
@@ -49,6 +43,6 @@ describe('AddArticles', () => {
                 article,
                 day
             })
-            .expect(listAfterArticleAdded, done)
+            .expect(mock.articleListAfterAdded, done)
     })
-})
+});
