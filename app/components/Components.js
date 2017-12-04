@@ -6,6 +6,10 @@ class Article {
         this.status = status;
     }
 
+    getId(){
+        return this.id;
+    }
+
 }
 
 class List {
