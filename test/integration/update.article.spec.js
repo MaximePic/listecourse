@@ -8,12 +8,12 @@ déjà acheté */
 
 const request = require('supertest');
 require('chai').should();
-const app = require('../server');
-const mock = require('./fixtures/mock');
-const Components = require('../app/components/Components');
+const app = require('../../server');
+const mock = require('./../fixtures/mock');
+const Components = require('../../app/components/Components');
 const Article = Components.Article;
-const db = require ('./data/db');
-const courseListFixture = require('./fixtures/courseList');
+const db = require ('./../data/db');
+const courseListFixture = require('./../fixtures/courseList');
 
 describe('UpdateArticles', () => {
     beforeEach(() => {courseListFixture.up()});

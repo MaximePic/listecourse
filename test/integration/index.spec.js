@@ -1,7 +1,7 @@
 const request = require('supertest')
 require('chai').should()
 
-const app = require('../server')
+const app = require('../../server')
 
 describe('Index', () => {
     xit('should pass', () => {     

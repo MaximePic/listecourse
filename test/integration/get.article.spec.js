@@ -8,10 +8,10 @@ acheter */
 const request = require('supertest');
 require('chai').should();
 
-const app = require('../server');
-const db = require ('./data/db');
-const mock = require('./fixtures/mock');
-const courseListFixture = require('./fixtures/courseList');
+const app = require('../../server');
+const db = require ('./../data/db');
+const mock = require('./../fixtures/mock');
+const courseListFixture = require('./../fixtures/courseList');
 
 
 //Tests sur l'api /getList/:param

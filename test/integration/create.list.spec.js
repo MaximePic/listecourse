@@ -7,11 +7,11 @@ dois acheter  */
 const request = require('supertest');
 require('chai').should();
 
-const app = require('../server');
-const mock = require('./fixtures/mock');
-const Components = require('../app/components/Components');
+const app = require('../../server');
+const mock = require('./../fixtures/mock');
+const Components = require('../../app/components/Components');
 const Article = Components.Article;
-const courseListFixture = require('./fixtures/courseList');
+const courseListFixture = require('./../fixtures/courseList');
 
 describe('AddList', () => {
 

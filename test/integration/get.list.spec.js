@@ -8,10 +8,10 @@ créées  */
 const request = require('supertest');
 require('chai').should();
 
-const db = require ('./data/db');
-const courseListFixture = require('./fixtures/courseList');
-const app = require('../server');
-const mock = require('./fixtures/mock');
+const db = require ('./../data/db');
+const courseListFixture = require('./../fixtures/courseList');
+const app = require('../../server');
+const mock = require('./../fixtures/mock');
 
 
 //Tests sur l'api /list
