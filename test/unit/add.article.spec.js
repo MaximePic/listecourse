@@ -1,11 +1,10 @@
-/*
-/!* GL-4
+/* GL-4
  En tant que client API
  Je veux ajouter un nouvel élément
  à partir d'un Nom, à une liste de
  course donnée
  Afin de pouvoir retenir facilement
- l'article à acheter *!/
+ l'article à acheter */
 
 const app = require('../../server');
 require('chai').should();
@@ -20,57 +19,47 @@ describe('add article', function () {
         sinon.spy()
     });
 
-    it('should send correct parameters to the expected URL /users', function () {
-        //////////////////////////
+    it('should create article with expected datas', function () {
         //////////GIVEN///////////
-        //////////////////////////
+        let expectedId = 1;
+        let expectedName = "Test";
+        let expectedQuantity = 3;
+        let expectedStatus = "ok";
+
+        ///////////WHEN///////////
+        let article = new Article(1, "Test", 3, "ok");
+
+        ///////////THEN///////////
+        sinon.assert.match(article.id, expectedId);
+        sinon.assert.match(article.name, expectedName);
+        sinon.assert.match(article.quantity, expectedQuantity);
+        sinon.assert.match(article.status, expectedStatus);
+    });
+
+    it('should call /article once', function () {
+        //////////GIVEN///////////
         let post = sinon.stub(request(app), 'post');
-        post.yields();
-
-        let article = new Article(3, "Iphone", 1, "nok");
-        console.log("ARJZEOPRZEOPJ" + JSON.stringify(article));
+        post.yields();      
+        let article = {id:3, name:"Iphone", quantity:1, status:"nok"};
         let day = "lundi";
-
-        //We'll set up some variables to contain the expected results
-        var expectedUrl = '/article';
-        var expectedParams = {
-            article: {"id": 3, "name": "Iphone", "quantity": 1, "status": "nok"},
-            day: 'lundi'
-        };
-
-        var articles = {
+        let articles = {
             addArticle: function (article, day) {
                 request(app)
                     .post('/article')
-                    .send({
-                        article,
-                        day
-                    })
+                    .send({article, day})
             }
         };
 
-        //Create a spy for the setName function
-        //Now, any time we call the function, the spy logs information about it
-        var addArticleSpy = sinon.spy(articles, 'addArticle');
+        let addArticleSpy = sinon.spy(articles, 'addArticle');
 
-        //////////////////////////
         ///////////WHEN///////////
-        //////////////////////////
         articles.addArticle(article, day);
 
-
-        //////////////////////////
         ///////////THEN///////////
-        //////////////////////////
-        sinon.assert.calledWith(addArticleSpy, expectedUrl,expectedParams);
-
-        //Important final step - remove the spy
+        sinon.assert.called(addArticleSpy)
+        sinon.assert.callCount(addArticleSpy, 1)
         addArticleSpy.restore();
-
-
-
     });
+
+
 });
-
-
-*/
