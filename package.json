@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test/unit/*.js",
+    "test": "mocha test/**/*.js",
     "test:watch": "mocha -w",
     "start": "node server.js"
   },

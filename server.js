@@ -12,15 +12,6 @@ const port = 1997;
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.get('/', function (req, res) {
-    res.json({
-        status: 'success',
-        data: {
-            user: { name: 'Jean', age: 45 }
-        }
-    })
-});
-
 //***************************************//
 //***************** GL1 *****************//
 //**********create.list.spec.js**********//
@@ -30,8 +21,6 @@ app.post('/list', function (req, res) {
     let key = req.body.key;
 
     db.courseList[0][key] = articles;
-    console.log("LISTEEEEE" + JSON.stringify(db.courseList));
-
     res.status(200).send(db.courseList);
 });
 
