@@ -47,6 +47,13 @@ const articleListAfterNewList = [{
     ]
 }];
 
+const articleListAfterDeleteList = [{
+    lundi: [
+        {id: 1, name: 'Viande', quantity: 1, status: "nok"},
+        {id: 2, name: 'Popcorn', quantity: 1, status: "nok"}
+    ]
+}];
+
 const mondayList = [
     {id: 1, name: 'Viande', quantity: 1, status: "nok"},
     {id: 2, name: 'Popcorn', quantity: 1, status: "nok"}
@@ -63,5 +70,6 @@ const tuesdayList = [
       tuesdayList,
       articleListAfterAdded,
       articleListAfterUpdate,
-      articleListAfterNewList
+      articleListAfterNewList,
+      articleListAfterDeleteList
     };
