@@ -14,6 +14,7 @@ const Components = require('../../app/components/Components');
 const Article = Components.Article;
 const db = require ('./../data/db');
 const courseListFixture = require('./../fixtures/courseList');
+const generateID = require('./../fixtures/generateUuid');
 
 describe('AddArticles', () => {
     beforeEach(() => {courseListFixture.up()});
@@ -34,8 +35,11 @@ describe('AddArticles', () => {
     });
 
     it('should update list with new article', (done) => {
-        let article =  new Article(3, "Iphone", 1, "nok");
+
+        let id = generateID.generateUuid();
+        let article =  new Article(id, "Iphone", 1, "nok");
         let day = "lundi";
+
 
         request(app)
             .post('/article')
@@ -43,6 +47,6 @@ describe('AddArticles', () => {
                 article,
                 day
             })
-            .expect(mock.articleListAfterAdded, done)
+            .expect(mock.articleAfterAdd(id), done)
     })
 });
