@@ -11,12 +11,12 @@ const sinon = require('sinon');
 const request = require('supertest');
 const Components = require('../../app/components/Components');
 
-describe('add article', function () {
+describe('see list', function () {
     beforeEach(() => {
         sinon.spy()
     });
 
-    it('should call /article once', function () {
+    it('should call /list once', function () {
         //////////GIVEN///////////
         let get = sinon.stub(request(app), 'get');
         get.yields();

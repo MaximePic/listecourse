@@ -13,12 +13,12 @@ const Components = require('../../app/components/Components');
 const generateID = require('./../fixtures/generateUuid');
 
 
-describe('add article', function () {
+describe('update article', function () {
     beforeEach(() => {
         sinon.spy()
     });
 
-    it('should call /article once', function () {
+    it('should call /changeArticleStatus once', function () {
         //////////GIVEN///////////
         let post = sinon.stub(request(app), 'post');
         post.yields();
