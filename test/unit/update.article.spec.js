@@ -10,7 +10,6 @@ require('chai').should();
 const sinon = require('sinon');
 const request = require('supertest');
 const Components = require('../../app/components/Components');
-const Article = Components.Article;
 const generateID = require('./../fixtures/generateUuid');
 
 

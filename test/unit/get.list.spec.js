@@ -4,12 +4,12 @@ Je veux pouvoir afficher les listes
 de course
 Afin de parcourir les listes que j'ai
 créées  */
+
 const app = require('../../server');
 require('chai').should();
 const sinon = require('sinon');
 const request = require('supertest');
 const Components = require('../../app/components/Components');
-const Article = Components.Article;
 
 describe('add article', function () {
     beforeEach(() => {
