@@ -8,7 +8,6 @@ const db = require('./test/data/db');
 
 const port = 1997;
 
-
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
@@ -28,7 +27,13 @@ app.post('/list', function (req, res) {
 //***************** GL2 *****************//
 //**********delete.list.spec.js**********//
 //***************************************//
-//TODO
+app.post('/delete', function (req, res) {
+    let day = req.body.day;
+
+    delete db.courseList[0][day];
+
+    res.status(200).send(db.courseList);
+});
 
 //***************************************//
 //***************** GL3 *****************//
