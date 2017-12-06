@@ -22,8 +22,9 @@ describe('AddArticles', () => {
     afterEach(() => {courseListFixture.down()});
 
     it('should get status 200 (success)', (done) => {
-        
-        let article = new Article(3, "Iphone", 1, "nok");
+
+        let id = generateID.generateUuid();
+        let article = new Article(id, "Iphone", 1, "nok");
         let day = "lundi";
 
         request(app)
