@@ -9,5 +9,3 @@ Utilisation:
 * `npm test`
 
 Express server will be listening on port 1997.
-
-https://travis-ci.org/MaximePic/listecourse.svg?branch=master
