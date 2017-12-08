@@ -1,6 +1,6 @@
-# TP tests avec Mocha, Supertest, Chai, sinon.
+# TP tests with Mocha, Supertest, Chai, sinon.
 
-Maxime POMMIER et Maxime PIC.
+Maxime POMMIER - Maxime PIC.
 
 
 Utilisation:
@@ -8,4 +8,4 @@ Utilisation:
 * `npm i`
 * `npm test`
 
-Express server will open with port 1997.
+Express server will be listening on port 1997.
